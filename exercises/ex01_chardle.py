@@ -8,6 +8,9 @@ if len(word) != 5:
     exit()
 
 char: str = str(input("Enter a single character: "))
+if len(char) != 1:
+    print("Error: character must be a single character")
+    exit()
 count: int = 0
 
 print("Searching for " + char + " in " + word)
@@ -28,4 +31,9 @@ if word[4] == char:
     print(char + " found at index 4")
     count += 1
 
-print(str(count) + " instances of " + char + " found in " + word)
+if count == 1:
+    print("1 instance of " + char + " found in " + word)
+elif count == 0:
+    print("No instances of " + char + " found in " + word)
+else:
+    print(str(count) + " instances of " + char + " found in " + word)
