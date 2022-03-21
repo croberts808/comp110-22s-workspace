@@ -2,21 +2,16 @@
 
 __author__ = "730439833"
 
-from re import S
-import re
-from unittest import result
-
-
 WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 resulting_emoji: str = ""
 
-secret_word: str = "python"
-prompt: str = input(f"What is your " + str(len(secret_word)) + "-letter guess? ")
+secret_word: str = "cynic"
+prompt: str = input(f"What is your {len(secret_word)} -letter guess? ")
 
 while len(prompt) != len(secret_word):
-    prompt = input(f"That was not " + str(len(secret_word)) + " letters! Try again:")
+    prompt = input(f"That was not {len(secret_word)} letters! Try again:")
 
 i: int = 0
 
@@ -26,7 +21,7 @@ while i < len(secret_word):
     else:
         exists: bool = False
         j: int = 0
-        while exists != True and j < len(secret_word):
+        while not exists and j < len(secret_word):
             if secret_word[j] == prompt[i]:
                 exists = True
             j += 1
@@ -37,3 +32,8 @@ while i < len(secret_word):
     i += 1
 
 print(resulting_emoji)
+
+if prompt == secret_word:
+    print("You got it!")
+else:
+    print("Play again")
